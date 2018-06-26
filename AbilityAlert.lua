@@ -10,6 +10,18 @@ local LocalHero = Heroes.GetLocal();
 local Font = Renderer.LoadFont("Tahoma", 12, Enum.FontWeight.BOLD);
 
 
+
+function a1.OnGameStart()
+	LocalHero = Heroes.GetLocal();
+end
+
+
+function a1.OnGameEnd()
+	LocalHero = nil
+end
+
+
+
 function a1.InsertParticle( particle )
 	for k,v in pairs(AbilityList) do
 		if particle.name == v.name then
@@ -36,7 +48,7 @@ function a1.UpdateParticle( particle )
 	if #ParticleList > 0 then
 		for k,v in pairs(ParticleList) do
 			if v.index == particle.index then
-				if v.name == "teleport_end" and particle.entity ~= nil then
+				if (v.name == "teleport_end" or v.name == "teleport_end_bots") and particle.entity ~= nil then
 					ParticleList[k-1].entity = particle.entity
 					ParticleList[k].entity = particle.entity
 				end
@@ -99,8 +111,7 @@ function a1.OnDraw()
 				table.remove(ParticleList, k)
 			else
 				if v.entity ~= nil and v.entity ~= 0 and v.pos ~= nil then
-					if  NPC.IsVisible(v.entity) ~= true or v.name == "teleport_end" or v.name == "teleport_start" then
-						
+					if  NPC.IsVisible(v.entity) ~= true or v.name == "teleport_end" or v.name == "teleport_start" or v.name == "teleport_end_bots" or v.name == "teleport_start_bots"  then
 						if Entity.IsSameTeam(LocalHero,v.entity) then return end;
 						local shortname = tostring(NPC.GetUnitName(v.entity))
 						

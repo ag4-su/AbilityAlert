@@ -893,6 +893,20 @@ Abils.List = {
         unique = true
     },
 	{  
+        name =  "teleport_start_bots",
+        msg ='',
+        ability = "item_tpscroll","item_travel_boots",
+        duration = 10,
+        unique = true
+    },
+	{  
+        name =  "teleport_end_bots",
+        msg ='',
+        ability = "item_tpscroll","item_travel_boots",
+        duration = 10,
+        unique = true
+    },
+	{  
         name = "dagon",
         msg ='',
         ability = "item_dagon",
