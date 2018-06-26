@@ -6,26 +6,9 @@ local AbilityConnect = require "scripts/settings/Abils";
 local AbilityList = AbilityConnect:Get();
 local Weigth, Height = Renderer.GetScreenSize();
 local cachedIcons = {}
-local LocalHero = nil
+local LocalHero = Heroes.GetLocal();
 local Font = Renderer.LoadFont("Tahoma", 12, Enum.FontWeight.BOLD);
 
-
-
-function a1.OnGameStart()
-	LocalHero = Heroes.GetLocal();
-end
-
-function a1.OnScriptLoad()
-	LocalHero = Heroes.GetLocal();
-end
-
-function a1.OnGameEnd()
-	LocalHero = nil
-end
-
-function a1.OnScriptUnload()
-	LocalHero = nil
-end
 
 function a1.InsertParticle( particle )
 	for k,v in pairs(AbilityList) do
