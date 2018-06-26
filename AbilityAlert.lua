@@ -129,15 +129,15 @@ function a1.OnDraw()
 								Renderer.DrawImage (cachedIcons[shortname], x, y, 24, 24)
 							end	
 							
-							if v.name == "teleport_end" then
+							if v.name == "teleport_end" or v.name == "teleport_end_bots" then
 								MiniMap.DrawHeroIcon(NPC.GetUnitName(v.entity), v.pos, 50, 205, 50, 255, 800)
 							end
 							
-							if v.name == "teleport_start" then
+							if v.name == "teleport_start" or v.name == "teleport_start" then
 								MiniMap.DrawHeroIcon(NPC.GetUnitName(v.entity), v.pos, 72, 61, 139, 250, 800)
 							end
 							
-							if v.name ~= "teleport_end" and v.name ~= "teleport_start" then
+							if v.name ~= "teleport_end" and v.name ~= "teleport_start_bots" then
 								MiniMap.DrawHeroIcon(NPC.GetUnitName(v.entity), v.pos, 250, 140, 125, 255, 600)
 							end
 						end
